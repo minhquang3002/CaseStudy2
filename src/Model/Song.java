@@ -10,7 +10,6 @@ public class Song implements Serializable {
     }
 
     public Song(String nameSong, String author) {
-        super();
         this.nameSong = nameSong;
         this.author = author;
     }

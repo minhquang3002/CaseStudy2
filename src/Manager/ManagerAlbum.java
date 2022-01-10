@@ -90,6 +90,7 @@ public class ManagerAlbum {
     }
 
     public void selectAlbum() throws ClassNotFoundException, IOException {
+        System.out.println("Enter album name");
         String name = scanner.nextLine();
         int count = 0;
         for (Album album : listAlbum) {

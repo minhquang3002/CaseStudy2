@@ -20,8 +20,6 @@ public class ManagerUser {
     }
 
     public User createUser() {
-        System.out.println("Enter id user");
-        int idUser = scanner.nextInt();
         System.out.println("Enter name");
         String name = scanner.nextLine();
         System.out.println("Enter email");
@@ -34,9 +32,9 @@ public class ManagerUser {
         String backupPassword = scanner.nextLine();
         System.out.println("Enter is admin");
         boolean isAdmin = Boolean.parseBoolean(scanner.nextLine());
-        return new User(idUser, name, email, userName, password, backupPassword, isAdmin);
+        return new User(name, email, userName, password, backupPassword, isAdmin);
     }
-
+//Boolean.parseBoolean(scanner.nextLine());
     public void addUser() throws IOException {
         int count = 0;
         User user = createUser();

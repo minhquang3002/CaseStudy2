@@ -1,7 +1,8 @@
 package Model;
 
-public class User {
-    private int idUser;
+import java.io.Serializable;
+
+public class User implements Serializable {
     private String name;
     private String email;
     private String userName;
@@ -12,22 +13,13 @@ public class User {
     User() {
     }
 
-    public User(int idUser, String name, String email, String userName, String password, String backupPassword, boolean isAdmin) {
-        this.idUser = idUser;
+    public User(String name, String email, String userName, String password, String backupPassword, boolean isAdmin) {
         this.name = name;
         this.email = email;
         this.userName = userName;
         this.password = password;
         this.backupPassword = backupPassword;
         this.isAdmin = isAdmin;
-    }
-
-    public int getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
     }
 
     public String getName() {
@@ -80,7 +72,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User  [ ID User = " + idUser + " || Name = " + name + " || User Name = "
+        return "User  [ Name = " + name + " || User Name = "
                 + userName + " || Password = " + password + " || Is Admin = " + isAdmin + " ]";
     }
 }
