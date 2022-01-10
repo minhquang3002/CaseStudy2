@@ -9,11 +9,11 @@ import java.util.Scanner;
 
 public class ManagerUser {
     Scanner scanner = new Scanner(System.in);
-    ArrayList<User> listUser = readFile();
+    ArrayList<User> listUser = new ArrayList<>();
 
-    public ManagerUser() throws ClassNotFoundException, IOException {
+    public ManagerUser() throws IOException {
         try{
-            writeFile(readFile());
+            writeFile(listUser);
         }catch(IOException e) {
             writeFile(new ArrayList<>());
         }
@@ -22,8 +22,6 @@ public class ManagerUser {
     public User createUser() {
         System.out.println("Enter name");
         String name = scanner.nextLine();
-        System.out.println("Enter email");
-        String email = scanner.nextLine();
         System.out.println("Enter username");
         String userName = scanner.nextLine();
         System.out.println("Enter password");
@@ -32,9 +30,9 @@ public class ManagerUser {
         String backupPassword = scanner.nextLine();
         System.out.println("Enter is admin");
         boolean isAdmin = Boolean.parseBoolean(scanner.nextLine());
-        return new User(name, email, userName, password, backupPassword, isAdmin);
+        return new User(name, userName, password, backupPassword, isAdmin);
     }
-//Boolean.parseBoolean(scanner.nextLine());
+
     public void addUser() throws IOException {
         int count = 0;
         User user = createUser();
@@ -51,6 +49,7 @@ public class ManagerUser {
     }
 
     public void forgotPassword() throws IOException {
+        System.out.println("Enter the account name you want to restore");
         String name = scanner.nextLine();
         for (User user : listUser) {
             if (user.getUserName().equals(name)) {

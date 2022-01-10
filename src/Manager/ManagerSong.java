@@ -93,10 +93,22 @@ public class ManagerSong {
                 String name1 = scanner.nextLine();
                 for(int j = 0; j < listSong.size(); j++) {
                     if(listSong.get(j).getNameSong().equals(name1)) {
-                        System.out.println("Deleted " + listSong.get(i));
-                        listSong.remove(j);
-                        ManagerAlbum.writeFile(list);
-                        countSong++;
+                        System.out.println("Are you absolutely sure?");
+                        System.out.println("This action cannot be undone. This will permanently delete the song");
+                        System.out.println("1. I understand the consequences, delete this song");
+                        System.out.println("2. Cancel");
+                        int choice = scanner.nextInt();
+                        switch (choice){
+                            case 1:
+                                System.out.println("Deleted " + listSong.get(i));
+                                listSong.remove(j);
+                                ManagerAlbum.writeFile(list);
+                                countSong++;
+                                break;
+                            case 2:
+                                countSong++;
+                                break;
+                        }
                     }
                 }
             }
@@ -115,13 +127,11 @@ public class ManagerSong {
                 System.err.println("The song title already exists");
                 return true;
             }
-            if (nameSong == null){
+            if (nameSong.equals("")){
                 System.err.println("Song title can't be blank");
                 return true;
             }
         }
         return false;
     }
-
-
 }

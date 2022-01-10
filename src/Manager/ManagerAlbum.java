@@ -110,7 +110,7 @@ public class ManagerAlbum {
                 System.err.println("Album name already exists");
                 return true;
             }
-            if (nameAlbum == null){
+            if (nameAlbum.equals("")){
                 System.err.println("Album name cannot be empty");
                 return true;
             }
